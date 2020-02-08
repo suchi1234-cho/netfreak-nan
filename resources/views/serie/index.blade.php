@@ -11,7 +11,10 @@
         <!-- <a href="#">serie->name โดย username update  เมื่อ yyyy-mm-dd</a> -->
         @foreach($series as $serie)
         <li>
-            <a href="#">{{ $serie->title }}</a>
+            <a href="{{ url('/series/' . $serie->id) }}">
+                {{ $serie->title }}
+                {{ $serie->episodes->count() }} ตอน
+            </a>
         </li>
         @endforeach
     </ul>
