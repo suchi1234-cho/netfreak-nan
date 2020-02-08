@@ -8,7 +8,12 @@
     <h1 class="py-5">รายการซีรีย์</h1>
 
     <ul class="">
-        <li><a href="#">serie->name โดย username update  เมื่อ yyyy-mm-dd</a></li>
+        <!-- <a href="#">serie->name โดย username update  เมื่อ yyyy-mm-dd</a> -->
+        @foreach($series as $serie)
+        <li>
+            <a href="#">{{ $serie->title }}</a>
+        </li>
+        @endforeach
     </ul>
 </div>
 

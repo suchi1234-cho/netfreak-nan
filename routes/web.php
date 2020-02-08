@@ -21,3 +21,27 @@ Route::get('/test-video', function () {
     return view('partials.url-video-player');
 });
 
+// แสดงรายการ ซีรีย์/ตอน index
+Route::get('/series', function () {
+    $series = \App\Serie::all();
+
+    return view('serie.index')->with([
+        'series' => $series
+    ]);
+    
+})->name('series');
+
+// แสดงฟอร์มสร้าง ซีรีย์/ตอน
+Route::get('/series/create', function () {
+    return view('serie.create');
+});
+
+// รับข้อมูลจากฟอร์มสร้าง ซีรีย์/ตอน แล้วบันทึกลงตาราง
+Route::post('/series', function () {
+    $data = \Request::all();
+
+    \App\Serie::create($data);
+
+    return redirect('series');
+});
+
